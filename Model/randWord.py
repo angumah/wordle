@@ -19,9 +19,3 @@ class RandWord:
             print(word)
         return self.filteredArray[random.randint(0, len(self.filteredArray))]
     
-
-
-
-        
-    
-    
