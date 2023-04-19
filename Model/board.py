@@ -52,8 +52,8 @@ class Board:
         2 - letter is in word and in the correct position
         '''
         scores = []
-        word = self.word
         for i in range(len(self.word)-1):
+            word = self.word
             wordChar = word[i:i+1]
             guessChar = guess[i:i+1]
             print(i)

@@ -9,7 +9,7 @@ class GameView():
         """
         self.board = board
         self.root = root
-        self.root.geometry("250x300")
+        self.root.geometry(f"{self.board.getRow()*40}x{self.board.getCol()*60}")
         self.root.title("PY-Wordle")
 
 
