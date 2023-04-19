@@ -17,6 +17,7 @@ class GameView():
         """
         checks inputted guess against the actual word
         """
+
         charArr = [[None] * self.board.getCol() for _ in range(self.board.getRow())]
         cells = grid.children
 
@@ -36,7 +37,16 @@ class GameView():
         self.renderRow(cells, score)
         self.board.takeAttempt()
         if self.board.endGame(guess):
-            print("end")
+            winWindow = tk.Tk()
+            winWindow.geometry("150x200")
+            winWindow.title("PY-Wordle")
+            endFrame = tk.Frame(winWindow)
+            endTitle = tk.Label(endFrame, text="Statistics", font=("Arial", 12))
+            endTitle.pack()
+
+            guesses = tk.Label(endFrame, text=f"Attempts : {self.board.getGuessAttempt()}")
+            guesses.pack()
+            endFrame.pack()
 
     def renderRow(self, children, score):
         """
@@ -67,7 +77,6 @@ class GameView():
         titleFrame = tk.Frame(self.root)
         gameTitle = tk.Label(titleFrame, text="PY-Wordle", font=("Arial", 24))
         gameTitle.pack()
-
         gridFrame = tk.Frame(self.root)
         for i in range(self.board.getRow()):
             for j in range(self.board.getCol()):
